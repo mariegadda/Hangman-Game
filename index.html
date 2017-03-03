@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+	<title>Jungle Hangman</title>
+</head>
+<body>
+	<h1>Jungle Hangman!</h1>
+
+<div id="game">
+			
+	</div>
+
+<!-- - pick a word  (array of possible words)
+	- display the blanks for the length of the word to fill in
+	- listen for letters that user picks
+	- display number of guesses remaining - Guess: is incremented down as user uses them.
+	-reveal the letters in the word as userGuess picks them
+	- option for user to type entire word?
+	-when word is completed or guesses used up reset
+		 -->
+		
+<script type="text/javascript">
+	var words = ["panther", "toucan", "sloth", "monkey"];
+	var guesses = 15
+
+		// saving userGuess
+		document.onkeyup = function() {
+		var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
+
+		console.log(userGuess);
+		
+		// if statement - if userGuess matches a letter in the array of letters in computerChoice
+		
+	
+		// choosing the word to be guessed
+		var computerChoice = words[Math.floor(Math.random() *words.length)];
+		// make an array out of letters in computerChoice
+
+		console.log(computerChoice);
+		
+		console.log(words);
+		var target = document.getElementById("game");
+
+			target.innerHTML = "Word: " +computerChoice; 
+			// replace each letter in computerChoice with _
+	// 		Guesses: 
+	// document.querySelector('#game').innerHTML = html;
+}
+</script>
+
+</body>
+</html>
