@@ -3,13 +3,24 @@
 	<title>Jungle Hangman</title>
 </head>
 <body>
+
+<style type="text/css">
+	div {
+		display: inline;
+	}
+</style>
 	<h1>Jungle Hangman!</h1>
 
 <div id="game">
 			
 	</div>
 
+<div id="Counter"></div>
+
+<div id ="letters"></div>
+
 <!-- - pick a word  (array of possible words)
+-make each word and array of letters!
 	- display the blanks for the length of the word to fill in
 	- listen for letters that user picks
 	- display number of guesses remaining - Guess: is incremented down as user uses them.
@@ -19,29 +30,78 @@
 		 -->
 		
 <script type="text/javascript">
-	var words = ["panther", "toucan", "sloth", "monkey"];
+	var words = [ 
+	["p", "a", "n", "t", "h", "e", "r"],
+	["t", "o", "u", "c", "a", "n" ],
+	["s", "l", "o", "t", "h"],
+	["m", "o", "n", "k", "e", "y"]
+	]
 	var guesses = 15
+	// choosing the word to be guessed
+	var computerChoice = words[Math.floor(Math.random() *words.length)];
 
+	// 
+	// selecting game id in html and printing the computer choice there
+	var target = document.getElementById("game");
+
+	target.innerHTML = "<p>Word: " +computerChoice + "</p>"; 
+	var target =document.getElementById("letters");
+
+	target.innerHTML = "<p> Guessed letters: </p>"
+
+		// make an array out of letters in computerChoice
 		// saving userGuess
 		document.onkeyup = function() {
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
+
+		
+
+	
+		//  addes the letters that are guessed to a new
+		var newDiv = document.createElement("div");
+
+		newDiv.innerHTML = " " + userGuess
+
+		target.appendChild(newDiv);
+		
+
+
+		var counter = document.getElementById("Counter");
+
+		
+		counter.innerHTML = "<p>Guesses Remaining: " + guesses + "</p>";
+
+		
+
+
+		// var letters = document.getElementById("letters");
+
+		// letters.innerHTML = "<p> Guessed Letters: " + userGuess + "</p>"
+
+
 
 		console.log(userGuess);
 		
 		// if statement - if userGuess matches a letter in the array of letters in computerChoice
 		
 	
-		// choosing the word to be guessed
-		var computerChoice = words[Math.floor(Math.random() *words.length)];
-		// make an array out of letters in computerChoice
+		
+		
+	
 
+		// console.log to show it works
 		console.log(computerChoice);
 		
 		console.log(words);
-		var target = document.getElementById("game");
-
-			target.innerHTML = "Word: " +computerChoice; 
+	
+		
 			// replace each letter in computerChoice with _
+
+
+		// print guesses in HTML 
+
+		// count down from 15 Guesses
+
 	// 		Guesses: 
 	// document.querySelector('#game').innerHTML = html;
 }
