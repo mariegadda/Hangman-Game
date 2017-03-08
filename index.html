@@ -19,91 +19,115 @@
 
 <div id ="letters"></div>
 
-<!-- - pick a word  (array of possible words)
--make each word and array of letters!
-	- display the blanks for the length of the word to fill in
-	- listen for letters that user picks
-	- display number of guesses remaining - Guess: is incremented down as user uses them.
-	-reveal the letters in the word as userGuess picks them
-	- option for user to type entire word?
-	-when word is completed or guesses used up reset
-		 -->
+
 		
 <script type="text/javascript">
 	var words = [ 
 	["p", "a", "n", "t", "h", "e", "r"],
 	["t", "o", "u", "c", "a", "n" ],
 	["s", "l", "o", "t", "h"],
-	["m", "o", "n", "k", "e", "y"]
-	]
+	["m", "o", "n", "k", "e", "y"],
+	["f", "r", "o", "g"]
+	];
+
 	var guesses = 15
 	// choosing the word to be guessed
-	var computerChoice = words[Math.floor(Math.random() *words.length)];
+	var random = Math.floor((Math.random()*(words.length-1)));
+	var computerChoice = words[random];
+	console.log(computerChoice);
+	var blanks = new Array(computerChoice.length);
+	console.log(blanks);
 
-	// 
+	// every letter in the word is symbolized by an underscore in the guessfield
+for (var i = 0; i < blanks.length; i++){
+	blanks[i] = "_ ";
+}
+	// getting the length of the word the computer chose
+	// var blanks2 = computerChoice.length
+	// replacing each letter in word with blank
+ 
+	// var blanks3 = new Array(blanks2 +1).join("_ ");
+	// checking that its working
+	// console.log(computerChoice);
+	// console.log(blanks3);
+	// console.log(blanks2);
 	// selecting game id in html and printing the computer choice there
 	var target = document.getElementById("game");
 
-	target.innerHTML = "<p>Word: " +computerChoice + "</p>"; 
+	//prints the blanks that match the computerChoice
+	target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+
+	// prints "Guessed Letters: "
 	var target =document.getElementById("letters");
 
 	target.innerHTML = "<p> Guessed letters: </p>"
 
-		// make an array out of letters in computerChoice
 		// saving userGuess
 		document.onkeyup = function() {
 		var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
-
+		// function that iterates through computer choice and sees if it matches the guess
 		
 
-	
-		//  addes the letters that are guessed to a new
-		var newDiv = document.createElement("div");
+			 if (userGuess === computerChoice[0]){ 
+			 	
+			 	blanks[0] = computerChoice[0];
+			 	var target = document.getElementById("game");
 
+				//prints the blanks that match the computerChoice
+				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+
+
+			 }
+			 
+		//  adds the letters that are guessed to a new div, prints them out as they are typed
+		var newDiv = document.createElement("div");
 		newDiv.innerHTML = " " + userGuess
 
 		target.appendChild(newDiv);
 		
+		// match userguess to letters in computerchoice
 
 
+
+
+		// if (userGuess === computerChoice[0]) {
+		// 	blanks3.splice(0, 1, userGuess);
+		// }
+		
+			
+
+			// userGuess === computerChoice[1] ||
+			// userGuess === computerChoice[2] ||
+			// userGuess === computerChoice[3] ||
+			// userGuess === computerChoice[4] ||
+			// userGuess === computerChoice[5] ||
+			// userGuess === computerChoice[6]) {
+			// 	console.log(userGuess);
+			// replace blanks with the letter typed 
+		
+			// } else{};
+
+
+
+
+		// userguess = key pressed. computerchoice = arrays. if userguess = letter in array print it in array. 
+
+		// replaces dash in computerchoice with correct userguess
+
+		// counter counting down the guesses remaining
 		var counter = document.getElementById("Counter");
 
 		
 		counter.innerHTML = "<p>Guesses Remaining: " + guesses + "</p>";
 
-		
-
-
-		// var letters = document.getElementById("letters");
-
-		// letters.innerHTML = "<p> Guessed Letters: " + userGuess + "</p>"
-
-
-
-		console.log(userGuess);
-		
-		// if statement - if userGuess matches a letter in the array of letters in computerChoice
-		
 	
+	// when counter reaches 0, alert "you lost"
+
+	// when word is filled - alert "you won"
 		
-		
-	
-
-		// console.log to show it works
-		console.log(computerChoice);
-		
-		console.log(words);
-	
-		
-			// replace each letter in computerChoice with _
 
 
-		// print guesses in HTML 
 
-		// count down from 15 Guesses
-
-	// 		Guesses: 
-	// document.querySelector('#game').innerHTML = html;
 }
 </script>
 
