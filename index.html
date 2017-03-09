@@ -4,11 +4,10 @@
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style.css">
-<link href="https://fonts.googleapis.com/css?family=Acme|Chewy|Fredoka+One|Gloria+Hallelujah|Permanent+Marker|Ranga" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Acme|Permanent+Marker" rel="stylesheet">
 </head>
 <body>
-
-	<h1 class="text-center">Jungle Hangman!</h1>
+<h1 class="text-center">Jungle Hangman!</h1>
 
 <div class="text-center" id="game"></div>
 
@@ -19,6 +18,7 @@
 
 		
 <script type="text/javascript">
+	// array holding all my word options for the game
 	var words = [ 
 	["p", "a", "n", "t", "h", "e", "r"],
 	["t", "o", "u", "c", "a", "n" ],
@@ -26,35 +26,33 @@
 	["m", "o", "n", "k", "e", "y"],
 	["f", "r", "o", "g"]
 	];
-
+	// variable for starting number of guesses
 	var guesses = 15
 	// choosing the word to be guessed
 	var random = Math.floor((Math.random()*(words.length-1)));
 	var computerChoice = words[random];
-	console.log(computerChoice);
+	// blanks is an array the length of the computerChoice
 	var blanks = new Array(computerChoice.length);
-	console.log(blanks);
 
-	// every letter in the word is symbolized by an underscore in the guessfield
+	// foor loop goes through the blanks array and inserts a _ for each iterator
 	for (var i = 0; i < blanks.length; i++){
 	blanks[i] = "_ ";
 	}
-	
+
+	// selects game div
 	var target = document.getElementById("game");
 
 	//prints the blanks that match the computerChoice
-	target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+	target.innerHTML = "<p> " +blanks + "</p>"; 
 
 	// prints "Guessed Letters: "
 	var target =document.getElementById("letters");
-
 	target.innerHTML = "<p> Guessed letters: </p>"
 
-	// saving userGuess
+	// saving keystroke as the userGuess
 	document.onkeyup = function() {
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
-		// function that iterates through computer choice and sees if it matches the guess
-		
+		// If else that checks if userGuess matches any of the indexes of computerChoice, if it does it changes that index of the blanks array (which is the array actually being displayed.)
 
 			 if (userGuess === computerChoice[0]){ 
 			 	
@@ -109,6 +107,7 @@
 				//prints the udpated blanks  array 
 				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
 			 }
+			 //else statement for all userGuesses that do not fit in the word. therse are printed in new div.
 			 else{
                     guesses--;
                     counter.innerHTML = '<p>You have ' + guesses + ' guesses remaining</p';
@@ -119,19 +118,18 @@
 			 		var newDiv = document.createElement("div");
 					newDiv.innerHTML = " " + userGuess
 					target.appendChild(newDiv);
-                  
+                  // if the guesses reach 0 - alert that you lost and to refresh page
                     if (guesses === 0) alert("You lose! Refresh Page to Try Again!");
-                  
 
 			  }
-
-			  if (blanks.indexOf(userGuess) == 0 && blanks.indexOf(userGuess) ==1) {alert("you win!");}
+			  // My best try at making a winning alert - this for all indexes of blanks and userguess. (doesn't work)
+			 
+			 // if (blanks(0) === userGuess(0)) {alert("you win!");}
+			 	
+			  	// another guess at making a winning alert
 			 	// if (blanks[0] && blanks[1] && blanks[2] && blanks[3] && blanks[4] && blanks[5] && blanks[6] != "_"){ 
      //                alert("you win!"); }
-	
 		} 
-
-		
 
 </script>
 
