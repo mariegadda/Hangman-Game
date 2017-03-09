@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <head>
 	<title>Jungle Hangman</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Acme|Chewy|Fredoka+One|Gloria+Hallelujah|Permanent+Marker|Ranga" rel="stylesheet">
 </head>
 <body>
-<style type="text/css">
-	div {display: inline;}
-</style>
 
-	<h1>Jungle Hangman!</h1>
+	<h1 class="text-center">Jungle Hangman!</h1>
 
-<div id="game">
-			
-	</div>
+<div class="text-center" id="game"></div>
 
-<div id="counter"></div>
+<div  class="text-center" id="counter"> <p> You Have 15 guesses remaining <p></div>
 
-<div id ="letters"></div>
+<div class="text-center" id ="letters"></div> 
 
 
 		
@@ -121,11 +120,16 @@
 					newDiv.innerHTML = " " + userGuess
 					target.appendChild(newDiv);
                   
-                    if (guesses === 0) alert("Try Again!");
+                    if (guesses === 0) alert("You lose! Refresh Page to Try Again!");
+                  
 
 			  }
-			 	
-		}
+
+			  if (blanks.indexOf(userGuess) == 0 && blanks.indexOf(userGuess) ==1) {alert("you win!");}
+			 	// if (blanks[0] && blanks[1] && blanks[2] && blanks[3] && blanks[4] && blanks[5] && blanks[6] != "_"){ 
+     //                alert("you win!"); }
+	
+		} 
 
 		
 
