@@ -3,19 +3,17 @@
 	<title>Jungle Hangman</title>
 </head>
 <body>
-
 <style type="text/css">
-	div {
-		display: inline;
-	}
+	div {display: inline;}
 </style>
+
 	<h1>Jungle Hangman!</h1>
 
 <div id="game">
 			
 	</div>
 
-<div id="Counter"></div>
+<div id="counter"></div>
 
 <div id ="letters"></div>
 
@@ -39,19 +37,10 @@
 	console.log(blanks);
 
 	// every letter in the word is symbolized by an underscore in the guessfield
-for (var i = 0; i < blanks.length; i++){
+	for (var i = 0; i < blanks.length; i++){
 	blanks[i] = "_ ";
-}
-	// getting the length of the word the computer chose
-	// var blanks2 = computerChoice.length
-	// replacing each letter in word with blank
- 
-	// var blanks3 = new Array(blanks2 +1).join("_ ");
-	// checking that its working
-	// console.log(computerChoice);
-	// console.log(blanks3);
-	// console.log(blanks2);
-	// selecting game id in html and printing the computer choice there
+	}
+	
 	var target = document.getElementById("game");
 
 	//prints the blanks that match the computerChoice
@@ -62,9 +51,9 @@ for (var i = 0; i < blanks.length; i++){
 
 	target.innerHTML = "<p> Guessed letters: </p>"
 
-		// saving userGuess
-		document.onkeyup = function() {
-		var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
+	// saving userGuess
+	document.onkeyup = function() {
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
 		// function that iterates through computer choice and sees if it matches the guess
 		
 
@@ -73,62 +62,73 @@ for (var i = 0; i < blanks.length; i++){
 			 	blanks[0] = computerChoice[0];
 			 	var target = document.getElementById("game");
 
-				//prints the blanks that match the computerChoice
+				//prints the udpated blanks  array 
 				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
-
-
 			 }
 			 
-		//  adds the letters that are guessed to a new div, prints them out as they are typed
-		var newDiv = document.createElement("div");
-		newDiv.innerHTML = " " + userGuess
+			 else if (userGuess === computerChoice[1]) {
+			 	blanks[1] = computerChoice[1];
+			 		var target = document.getElementById("game");
 
-		target.appendChild(newDiv);
+				//prints the udpated blanks  array 
+				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+			 }
+
+			  else if (userGuess === computerChoice[2]) {
+			 	blanks[2] = computerChoice[2];
+			 		var target = document.getElementById("game");
+
+				//prints the udpated blanks  array 
+				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+			 }
+
+			  else if (userGuess === computerChoice[3]) {
+			 	blanks[3] = computerChoice[3];
+			 		var target = document.getElementById("game");
+
+				//prints the udpated blanks  array 
+				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+			 }
+			  else if (userGuess === computerChoice[4]) {
+			 	blanks[4] = computerChoice[4];
+			 		var target = document.getElementById("game");
+
+				//prints the udpated blanks  array 
+				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+			 }
+			  else if (userGuess === computerChoice[5]) {
+			 	blanks[5] = computerChoice[5];
+			 		var target = document.getElementById("game");
+
+				//prints the udpated blanks  array 
+				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+			 }
+			 else if (userGuess === computerChoice[6]) {
+			 	blanks[6] = computerChoice[6];
+			 		var target = document.getElementById("game");
+
+				//prints the udpated blanks  array 
+				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+			 }
+			 else{
+                    guesses--;
+                    counter.innerHTML = '<p>You have ' + guesses + ' guesses remaining</p';
+                    console.log(userGuess);
+
+                    var letters = document.getElementById("letters");
+			 		var target =document.getElementById("letters");
+			 		var newDiv = document.createElement("div");
+					newDiv.innerHTML = " " + userGuess
+					target.appendChild(newDiv);
+                  
+                    if (guesses === 0) alert("Try Again!");
+
+			  }
+			 	
+		}
+
 		
-		// match userguess to letters in computerchoice
 
-
-
-
-		// if (userGuess === computerChoice[0]) {
-		// 	blanks3.splice(0, 1, userGuess);
-		// }
-		
-			
-
-			// userGuess === computerChoice[1] ||
-			// userGuess === computerChoice[2] ||
-			// userGuess === computerChoice[3] ||
-			// userGuess === computerChoice[4] ||
-			// userGuess === computerChoice[5] ||
-			// userGuess === computerChoice[6]) {
-			// 	console.log(userGuess);
-			// replace blanks with the letter typed 
-		
-			// } else{};
-
-
-
-
-		// userguess = key pressed. computerchoice = arrays. if userguess = letter in array print it in array. 
-
-		// replaces dash in computerchoice with correct userguess
-
-		// counter counting down the guesses remaining
-		var counter = document.getElementById("Counter");
-
-		
-		counter.innerHTML = "<p>Guesses Remaining: " + guesses + "</p>";
-
-	
-	// when counter reaches 0, alert "you lost"
-
-	// when word is filled - alert "you won"
-		
-
-
-
-}
 </script>
 
 </body>
