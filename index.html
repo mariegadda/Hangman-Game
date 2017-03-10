@@ -60,7 +60,7 @@
 			 	var target = document.getElementById("game");
 
 				//prints the udpated blanks  array 
-				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+				target.innerHTML = "<p> " +blanks + "</p>"; 
 			 }
 			 
 			 else if (userGuess === computerChoice[1]) {
@@ -68,7 +68,7 @@
 			 		var target = document.getElementById("game");
 
 				//prints the udpated blanks  array 
-				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+				target.innerHTML = "<p> " +blanks + "</p>"; 
 			 }
 
 			  else if (userGuess === computerChoice[2]) {
@@ -76,7 +76,7 @@
 			 		var target = document.getElementById("game");
 
 				//prints the udpated blanks  array 
-				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+				target.innerHTML = "<p> " +blanks + "</p>"; 
 			 }
 
 			  else if (userGuess === computerChoice[3]) {
@@ -84,28 +84,28 @@
 			 		var target = document.getElementById("game");
 
 				//prints the udpated blanks  array 
-				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+				target.innerHTML = "<p> " +blanks + "</p>"; 
 			 }
 			  else if (userGuess === computerChoice[4]) {
 			 	blanks[4] = computerChoice[4];
 			 		var target = document.getElementById("game");
 
 				//prints the udpated blanks  array 
-				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+				target.innerHTML = "<p> " +blanks + "</p>"; 
 			 }
 			  else if (userGuess === computerChoice[5]) {
 			 	blanks[5] = computerChoice[5];
 			 		var target = document.getElementById("game");
 
 				//prints the udpated blanks  array 
-				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+				target.innerHTML = "<p> " +blanks + "</p>"; 
 			 }
 			 else if (userGuess === computerChoice[6]) {
 			 	blanks[6] = computerChoice[6];
 			 		var target = document.getElementById("game");
 
 				//prints the udpated blanks  array 
-				target.innerHTML = "<p>Word: " +blanks + "</p>"; 
+				// target.innerHTML = "<p> " +blanks + "</p>"; 
 			 }
 			 //else statement for all userGuesses that do not fit in the word. therse are printed in new div.
 			 else{
@@ -124,7 +124,7 @@
 			  }
 			  // My best try at making a winning alert - this for all indexes of blanks and userguess. (doesn't work)
 			 
-			 // if (blanks(0) === userGuess(0)) {alert("you win!");}
+			 if (blanks(0) === userGuess(0)) {alert("you win!");}
 			 	
 			  	// another guess at making a winning alert
 			 	// if (blanks[0] && blanks[1] && blanks[2] && blanks[3] && blanks[4] && blanks[5] && blanks[6] != "_"){ 
