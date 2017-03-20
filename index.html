@@ -7,20 +7,22 @@
 <link href="https://fonts.googleapis.com/css?family=Acme|Permanent+Marker" rel="stylesheet">
 </head>
 <body>
-<h1 class="text-center">Jungle Hangman!</h1>
+<div class="container">
+	<div class="row">
+		<h1 class="text-center">Jungle Hangman!</h1>
 
-<div class="text-center" id="game"></div>
+		<div class="text-center col-md-12" id="game"></div>
 
-<div  class="text-center" id="counter"> </div>
+		<div  class="text-center col-md-12" id="counter"> </div>
 
-<div class="text-center" id="wins"></div>
+		<div class="text-center col-md-12"> Wins: <span id="wins"></span></div>
 
-<div class="text-center" id="losses"></div>
+		<div class="text-center col-md-12">Losses:  <span id="losses"></span></div>
 
-<div class="text-center" id ="letters"></div> 
+		<div class="text-center col-md-12">Wrong Letters: <span id ="letters"></span></div> 
 
-<script type="text/javascript" src="script.js"></script>
-		
-
+		<script type="text/javascript" src="script.js"></script>
+	</div>		
+</div>
 </body>
 </html>

@@ -13,7 +13,7 @@
 // Game Counters
 var wins = 0;
 var losses = 0;
-var guessesLeft=15;
+var guessesLeft=10;
 // FUNCTIONS
 // ===================================================
 function startGame(){
@@ -22,7 +22,7 @@ function startGame(){
 	numBlanks = lettersinWord.length;
 
 	// reset
-	guessesLeft = 15;
+	guessesLeft = 10;
 	wrongLetters = [];
 	blanksAndSuccesses = [];
 	// populate blanksAndSuccesses with blanks
@@ -64,10 +64,37 @@ else{
 	wrongLetters.push(letter);
 	guessesLeft--
 }
-
 console.log(blanksAndSuccesses);
 }
 
+function roundComplete(){
+	console.log("Wind Count: " + wins + " | Loss Count: " + losses + "Guesses Left: " + guessesLeft);
+
+
+	document.getElementById("counter").innerHTML = "You Have " +guessesLeft + " Guesses Left";
+	document.getElementById("game").innerHTML = blanksAndSuccesses.join(" ")
+	document.getElementById("letters").innerHTML = wrongLetters.join(" ")
+	// check if user won
+	if (lettersinWord.toString() == blanksAndSuccesses.toString()){
+		wins++;
+		alert("You Won!");
+	
+	// update wins counter in HTML
+	document.getElementById("wins").innerHTML = wins;
+
+	startGame();
+}
+	// check if user lost
+
+	else if (guessesLeft == 0){
+		losses++
+		alert("You lost!");
+
+		document.getElementById("losses").innerHTML = losses;
+
+		startGame();
+	}
+}
 // MAIN PROCESSES
 // ===================================================
 // initiates the code for the first time
@@ -78,6 +105,7 @@ startGame();
 document.onkeyup = function(event) {
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
 	checkLetters(letterGuessed);
+	roundComplete();
 	// testing
 	console.log(letterGuessed);
 }
